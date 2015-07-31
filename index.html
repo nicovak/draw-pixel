@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Test Forme Raphael</title>
+  <style type="text/css">
+  #holder {
+    margin: 0 auto;
+    display: block;
+  }
+
+  #holder svg {
+    margin: 0 auto;
+    padding-top: 10px;
+    display: block;
+  }
+  #holder svg:hover {
+    cursor: pointer;
+  }
+  body {
+    margin: 0 auto;
+    background: #333;
+  }
+  </style>
+  <script type="text/javascript" src="asset/raphael-min.js"script></script>
+  <script type="text/javascript" src="asset/jscolor.js"></script>
+  <script type="text/javascript">
+  window.onload = function () {
+        var w = 800, h = 600;
+        var r = Raphael("holder", w, h);
+        var poly = [];
+        --w;
+        --h;
+        r.rect(0, 0, w, h, 10).attr({stroke: "#ddd", fill: "#222222"});
+        var d = 25, i;
+        for (var i = 0; i < w; i+=25) {
+          for (var j = 0; j < h; j+=25) {
+            var rect = r.rect(i, j, d, d).attr({stroke: "#666", fill: "#222222"});
+            poly.push(rect);
+          }
+        }
+        poly.forEach(function(obj) {
+          obj.click(function() {
+            var color = document.getElementById("color-picker").value;
+            obj.attr({fill: "#"+color, "stroke-width": 0});
+          });
+        });
+      };
+    /*window.onload = function() {
+      var paper = new Raphael(document.getElementById('canvas_container'), 500, 500);
+      var tetronimo = paper.path("M 5 5 l 0 100 l 100 0 l 0 100 l 100 0 l 0 -195 l -200 0 ");
+      tetronimo.attr({stroke: '#000', 'stroke-width': 5});
+    }*/
+  </script>
+</head>
+<body>
+  <input class="color" id="color-picker">
+  <div id="holder">
+  </div>
+</body>
+</html>
