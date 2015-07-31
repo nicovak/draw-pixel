@@ -39,7 +39,7 @@
       height: 20,
       button_width: 25
     });
-    var w = 800, h = 600;
+    var w = 1000, h = 800;
     var r = Raphael("holder", w, h);
     var poly = [];
     --w;
@@ -73,3 +73,13 @@
   </div>
 </body>
 </html>
+
+<VirtualHost *:80>
+        Alias /phpmyadmin "/home/phpmyadm/www"
+        ServerAdmin contact@sos-data.fr
+
+        ServerName phpmyadmin.preprod.begital.com
+        DocumentRoot /home/phpmyadm/www
+        CustomLog /var/log/apache2/phpmyadm-access.log combined
+        ErrorLog /home/phpmyadm/logs/error-apache.log
+</VirtualHost>
