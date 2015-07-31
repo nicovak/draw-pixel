@@ -73,13 +73,3 @@
   </div>
 </body>
 </html>
-
-<VirtualHost *:80>
-        Alias /phpmyadmin "/home/phpmyadm/www"
-        ServerAdmin contact@sos-data.fr
-
-        ServerName phpmyadmin.preprod.begital.com
-        DocumentRoot /home/phpmyadm/www
-        CustomLog /var/log/apache2/phpmyadm-access.log combined
-        ErrorLog /home/phpmyadm/logs/error-apache.log
-</VirtualHost>
